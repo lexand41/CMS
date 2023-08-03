@@ -1,5 +1,5 @@
 import {tableGoods} from './elems';
-import {calcTotalSum, currencyFormatRUB, setNumbers, calcTotalPrice} from './utils';
+import {calcTotalSum, currencyFormatRUB, calcTotalPrice} from './utils';
 
 const fillingRow = (goodsRow, {id, title, category, units, count, price, discount, image}) => {
   goodsRow.innerHTML = `
@@ -22,6 +22,7 @@ const fillingRow = (goodsRow, {id, title, category, units, count, price, discoun
     </tr>
     <tr>
   `;
+
   return goodsRow;
 };
 
@@ -30,7 +31,6 @@ export const renderRow = (data) => {
   goodsRow.classList.add('table__goods_item');
   goodsRow.dataset.id = data.id;
   tableGoods.append(fillingRow(goodsRow, data));
-  setNumbers();
   calcTotalSum();
 };
 
@@ -43,6 +43,5 @@ export const editRow = (data) => {
 export const tableRender = (goods) => {
   tableGoods.textContent = '';
   goods.forEach(renderRow);
-  setNumbers();
   calcTotalSum();
 };

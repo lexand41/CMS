@@ -16,7 +16,6 @@ export const modalImg = document.querySelector('.modal__image');
 export const inputImg = document.querySelector('.modal__file');
 export const previewText = document.querySelector('.modal__label_file-text');
 export const modalWarning = document.querySelector('.overlay__warning');
-export const formSearch = document.querySelector('.panel__search');
 export const inputSearch = document.querySelector('.panel__input');
 export const filterSearch = document.querySelector('.panel__filter');
 export const modalError = document.querySelector('.modal__error');

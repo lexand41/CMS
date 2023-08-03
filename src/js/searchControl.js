@@ -2,6 +2,10 @@ import {filterSearch, inputSearch} from './elems';
 import {searchGoods} from './serviceAPI';
 import {tableRender} from './tableView';
 
+inputSearch.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') e.preventDefault();
+});
+
 let i = 1;
 let choice;
 
@@ -23,7 +27,8 @@ export const searchControl = () => {
 
     inputSearch.disabled = false;
     inputSearch.value = '';
-    inputSearch.addEventListener('input', () => {
+    inputSearch.addEventListener('input', (e) => {
+      e.preventDefault();
       let timeout;
       const inputText = async () => {
         const foo = inputSearch.value;

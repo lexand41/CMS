@@ -3,7 +3,7 @@ import {modalControl} from './modalControl';
 import {searchControl} from './searchControl';
 import {getGoods, deleteGoods} from './serviceAPI';
 import {tableRender} from './tableView';
-import {calcTotalSum, setNumbers} from './utils';
+import {calcTotalSum} from './utils';
 
 
 export const tableControl = async () => {
@@ -25,12 +25,12 @@ export const tableControl = async () => {
 
       modalWarning.addEventListener('click', async ({target}) => {
         if (target.closest('.modal__btn_pass')) {
-          modalWarning.classList.remove('active');
           const isDel = await deleteGoods(row.dataset.id);
+          row.dataset.id = '';
+          modalWarning.classList.remove('active');
 
           if (isDel) {
             row.remove();
-            setNumbers();
             calcTotalSum();
           }
         }

@@ -17,7 +17,7 @@ export const toBase64 = (file) => {
   });
 };
 
-export const setNumbers = () => {
+const setNumbers = () => {
   const elements = document.querySelectorAll('.number');
   elements.forEach((elem, i) => {
     elem.innerHTML = i + 1;
@@ -40,6 +40,7 @@ export const calcTotalSum = () => {
     sumPriceTotals += +priceTotal.dataset.sum;
   }
   cmsTotalPrice.textContent = currencyFormatRUB(sumPriceTotals);
+  setNumbers();
 };
 
 export const calcTotalPrice = (count, price, discount) => {

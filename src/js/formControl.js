@@ -19,8 +19,6 @@ const updateCategory = async () => {
 };
 
 export const formControl = () => {
-  updateCategory();
-
   form.addEventListener('change', () => {
     const formProduct = new FormData(form);
     const {price, count, discount} = Object.fromEntries(formProduct);
@@ -54,7 +52,7 @@ export const formControl = () => {
     }
 
     closeModal(modal, 'active');
-    updateCategory();
+    await updateCategory();
   });
 };
 

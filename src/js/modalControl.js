@@ -52,6 +52,7 @@ export const modalControl = ({modalBtn, delegation}) => {
         modalTitle.textContent = `Изменить товар`;
         modalSubmitBtn.textContent = 'Изменить товар';
         openModal(goodsRow.dataset.id);
+
       }
     });
   }
@@ -81,20 +82,3 @@ export const modalImgControl = () => {
     }
   });
 };
-
-export const modaDleteControl = () => {
-  tableBody.addEventListener('click', (e) => {
-    if (e.target.closest('.table__btn_pic')) {
-      const urlImage = e.target.closest('.table__btn_pic').dataset.pic;
-      overlayImg.classList.add('active');
-      modalImg.src = `http://localhost:3000/${urlImage}`;
-    }
-  });
-
-  overlayImg.addEventListener('click', ({target}) => {
-    if (target === overlayImg || target.closest('.modal__close')) {
-      closeModal();
-    }
-  });
-};
-
